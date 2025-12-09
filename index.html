@@ -51,13 +51,16 @@
             gap: 10px;
         }
         .logo-mark {
-            font-weight: 800;
-            font-size: 22px;
-            letter-spacing: 0.08em;
-            color: #ffffff;
-            background: var(--bev-green);
-            padding: 6px 10px;
-            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .logo-text {
             display: flex;
@@ -83,7 +86,7 @@
             font-weight: 600;
         }
 
-        /* Hero 区：左图右文（小维+介绍） */
+        /* Hero 区：左门店图右文案 */
         .hero {
             max-width: 1120px;
             margin: 32px auto;
@@ -98,11 +101,11 @@
             position: relative;
             background: linear-gradient(135deg, #00a870 0%, #00c48c 100%);
             border-radius: 24px;
-            padding: 20px;
+            padding: 12px;
             overflow: hidden;
             min-height: 260px;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
         }
 
@@ -110,47 +113,23 @@
             position: absolute;
             inset: 0;
             opacity: 0.15;
-            background-image: linear-gradient(135deg, rgba(255,255,255,0.6) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.6) 75%, transparent 75%, transparent);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.5) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent);
             background-size: 32px 32px;
         }
 
-        .hero-avatar {
+        .hero-image-card {
             position: relative;
             z-index: 1;
-            width: 200px;
-            height: 260px;
+            width: 100%;
             border-radius: 20px;
-            background: #ffffff;
+            overflow: hidden;
             box-shadow: 0 18px 40px rgba(15,118,110,0.35);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            text-align: center;
         }
-
-        .avatar-circle {
-            width: 140px;
-            height: 140px;
-            border-radius: 999px;
-            background: #e5f9f1;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 52px;
-        }
-
-        .avatar-caption {
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .avatar-sub {
-            font-size: 12px;
-            color: #6b7280;
+        .hero-image-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
         }
 
         .hero-badge {
@@ -165,6 +144,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            z-index: 2;
         }
 
         .hero-badge span.dot {
@@ -311,15 +291,18 @@
             justify-content: space-between;
             min-height: 160px;
         }
-        .brand-logo-mark {
-            font-weight: 800;
-            font-size: 28px;
-            letter-spacing: 0.14em;
+        .brand-logo-img {
+            width: 100%;
+            max-width: 260px;
+        }
+        .brand-logo-img img {
+            width: 100%;
+            display: block;
         }
         .brand-slogan {
             font-size: 13px;
             color: #9ca3af;
-            margin-top: 6px;
+            margin-top: 10px;
         }
         .brand-ip-box {
             border-radius: 18px;
@@ -399,7 +382,10 @@
     <header>
         <div class="nav">
             <div class="logo">
-                <div class="logo-mark">BEV</div>
+                <!-- 方形 LOGO 图 -->
+                <div class="logo-mark">
+                    <img src="bev-logo-square.png" alt="必宜维 · 智能养车 Logo">
+                </div>
                 <div class="logo-text">
                     <span class="logo-text-cn">必宜维 · 智能养车</span>
                     <span class="logo-text-en">Let the cost of car ownership keep dropping</span>
@@ -412,17 +398,14 @@
         </div>
     </header>
 
-    <!-- Hero：左小维形象，右介绍 -->
+    <!-- Hero：左门店形象，右介绍 -->
     <main>
         <section class="hero">
             <div class="hero-left">
                 <div class="hero-pattern"></div>
-                <div class="hero-avatar">
-                    <!-- 这里将来可以替换成真实小维 PNG 图片 -->
-                    <!-- 例如 <img src="xiao-wei.png" alt="小维 · BEV 官方服务形象" style="width:100%;border-radius:16px;" /> -->
-                    <div class="avatar-circle">👨‍🔧</div>
-                    <div class="avatar-caption">小维 · BEV 官方服务形象</div>
-                    <div class="avatar-sub">专业、可信赖的新能源养车顾问</div>
+                <!-- 门店形象主图 -->
+                <div class="hero-image-card">
+                    <img src="store-front.jpeg" alt="必宜维 · 智能养车门店形象">
                 </div>
                 <div class="hero-badge">
                     <span class="dot"></span>
@@ -508,29 +491,30 @@
             </div>
         </section>
 
-        <!-- 品牌视觉：Logo + 小维说明 -->
+        <!-- 品牌视觉：Logo + 品牌说明 -->
         <section class="section">
             <h2 class="section-title">品牌形象</h2>
             <p class="section-subtitle">BRAND IDENTITY</p>
             <div class="brand-visual">
                 <div class="brand-logo-box">
-                    <div>
-                        <div class="brand-logo-mark">BEV</div>
-                        <div class="brand-slogan">必宜维 · 智能养车｜让用车成本持续降低</div>
+                    <div class="brand-logo-img">
+                        <!-- 横版 LOGO 图 -->
+                        <img src="bev-logo-horizontal.jpeg" alt="必宜维 · 智能养车 Logo">
                     </div>
-                    <div style="font-size:12px;margin-top:14px;color:#9ca3af;">
+                    <div class="brand-slogan">
                         Logo 采用斜切无衬线字体设计，象征新能源行业的速度、科技与可靠性，
                         是 BEV 智能养车服务的核心视觉符号。
                     </div>
                 </div>
                 <div class="brand-ip-box">
-                    <div class="brand-ip-title">品牌 IP：小维</div>
+                    <div class="brand-ip-title">品牌调性</div>
                     <p>
-                        小维是必宜维 BEV 的官方服务形象，代表专业、可信赖、温和而有亲和力的新能源养车专家。
-                        他象征着必宜维的服务精神：专业、透明、持续陪伴每一位新能源车主。
+                        必宜维希望为新能源车主提供的是一种“轻松、透明、可信赖”的养车体验：
+                        不被复杂专业词吓退，也不被模糊的收费困扰，而是通过清晰的检测结果和标准化的服务步骤，
+                        让用户真正看得懂、算得清、放心养车。
                     </p>
                     <p style="margin-top:8px;">
-                        后续可在此位置展示小维形象、门店场景、工位环境等品牌视觉素材，
+                        后续可在此位置展示门店形象、服务场景、检测设备等品牌视觉素材，
                         让用户更直观感受到 BEV 的标准化与专业度。
                     </p>
                 </div>
