@@ -2,44 +2,562 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
+    <title>必宜维 BEV｜智能养车 · 让用车成本持续降低</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>必宜维｜新能源车售后全案服务平台</title>
+    <meta name="description" content="必宜维 BEV · 专注新能源智能养车，通过三电检测技术、智能设备与数字化工具，让新能源车的养护更透明、更专业，让用车成本持续降低。" />
+
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
-        header { background: #1a73e8; color: #fff; padding: 40px 20px; text-align: center; }
-        section { padding: 40px 20px; max-width: 900px; margin: auto; background: #fff; margin-top: 20px; border-radius: 12px; }
-        h1 { font-size: 32px; }
-        h2 { font-size: 24px; margin-top: 0; }
-        .contact p { font-size: 18px; }
+        :root {
+            --bev-green: #00a870;
+            --bev-dark: #111827;
+            --bev-gray: #f3f4f6;
+            --bev-border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+            background: #ffffff;
+            color: var(--bev-dark);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* 顶部导航 */
+        header {
+            border-bottom: 1px solid var(--bev-border);
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-mark {
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            background: var(--bev-green);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text-cn {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .logo-text-en {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .nav-right {
+            font-size: 13px;
+            color: #6b7280;
+            text-align: right;
+        }
+
+        .nav-right strong {
+            color: var(--bev-green);
+            font-weight: 600;
+        }
+
+        /* Hero 区：左图右文（小维+介绍） */
+        .hero {
+            max-width: 1120px;
+            margin: 32px auto;
+            padding: 24px 20px 40px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+            gap: 32px;
+            align-items: center;
+        }
+
+        .hero-left {
+            position: relative;
+            background: linear-gradient(135deg, #00a870 0%, #00c48c 100%);
+            border-radius: 24px;
+            padding: 20px;
+            overflow: hidden;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.6) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.6) 75%, transparent 75%, transparent);
+            background-size: 32px 32px;
+        }
+
+        .hero-avatar {
+            position: relative;
+            z-index: 1;
+            width: 200px;
+            height: 260px;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 18px 40px rgba(15,118,110,0.35);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .avatar-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 999px;
+            background: #e5f9f1;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+        }
+
+        .avatar-caption {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .avatar-sub {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .hero-badge {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            background: rgba(17,24,39,0.85);
+            color: #f9fafb;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge span.dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+        }
+
+        .hero-right h1 {
+            font-size: 30px;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .hero-right h1 span {
+            color: var(--bev-green);
+        }
+        .hero-right .tagline {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+        .hero-right .subline {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+        .hero-right .hero-highlight {
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: #ecfdf5;
+            border: 1px solid #bbf7d0;
+            font-size: 13px;
+            color: #14532d;
+            margin-bottom: 22px;
+        }
+
+        .hero-right .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .btn-primary {
+            background: var(--bev-green);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+        .hero-phone {
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .hero-phone strong {
+            color: var(--bev-dark);
+        }
+
+        /* 通用内容区块 */
+        .section {
+            max-width: 1120px;
+            margin: 0 auto 32px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .intro-box {
+            background: var(--bev-gray);
+            border-radius: 16px;
+            padding: 18px 18px 18px;
+            border: 1px solid var(--bev-border);
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .intro-box p + p {
+            margin-top: 10px;
+        }
+
+        /* 服务模块 */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 10px;
+        }
+        .service-card {
+            border-radius: 16px;
+            border: 1px solid var(--bev-border);
+            padding: 16px 14px 18px;
+            background: #ffffff;
+        }
+        .service-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--bev-dark);
+        }
+        .service-tag {
+            display: inline-block;
+            font-size: 11px;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+        }
+        .service-card ul {
+            list-style: disc;
+            padding-left: 18px;
+            font-size: 13px;
+            color: #4b5563;
+        }
+        .service-card ul li + li {
+            margin-top: 4px;
+        }
+
+        /* 品牌视觉区 */
+        .brand-visual {
+            display: grid;
+            grid-template-columns: minmax(0,1.1fr) minmax(0,1.4fr);
+            gap: 18px;
+        }
+        .brand-logo-box {
+            border-radius: 18px;
+            padding: 18px;
+            background: #111827;
+            color: #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+        .brand-logo-mark {
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: 0.14em;
+        }
+        .brand-slogan {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 6px;
+        }
+        .brand-ip-box {
+            border-radius: 18px;
+            padding: 18px;
+            border: 1px dashed #d1d5db;
+            background: #f9fafb;
+            font-size: 13px;
+            color: #4b5563;
+        }
+        .brand-ip-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* 联系方式 */
+        .contact-box {
+            margin-top: 10px;
+            border-radius: 16px;
+            border: 1px solid var(--bev-border);
+            padding: 16px 18px;
+            background: #ffffff;
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .contact-box p + p {
+            margin-top: 4px;
+        }
+        .contact-join {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #111827;
+        }
+        .contact-join strong {
+            color: var(--bev-green);
+        }
+
+        /* 页脚 */
+        footer {
+            border-top: 1px solid var(--bev-border);
+            margin-top: 24px;
+        }
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 14px 20px 20px;
+            font-size: 12px;
+            color: #9ca3af;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        @media (max-width: 880px) {
+            .hero {
+                grid-template-columns: minmax(0,1fr);
+            }
+            .hero-left {
+                order: 1;
+            }
+            .hero-right {
+                order: 2;
+            }
+            .services {
+                grid-template-columns: minmax(0,1fr);
+            }
+            .brand-visual {
+                grid-template-columns: minmax(0,1fr);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- 顶部导航 -->
     <header>
-        <h1>必宜维｜新能源车售后全案服务平台</h1>
-        <p>价值主张：让用车成本持续降低</p>
+        <div class="nav">
+            <div class="logo">
+                <div class="logo-mark">BEV</div>
+                <div class="logo-text">
+                    <span class="logo-text-cn">必宜维 · 智能养车</span>
+                    <span class="logo-text-en">Let the cost of car ownership keep dropping</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div>咨询电话：<strong>0571-85035913</strong></div>
+                <div style="font-size:12px;">杭州 · 杭州湾智慧谷</div>
+            </div>
+        </div>
     </header>
 
-    <section>
-        <h2>我们是谁</h2>
-        <p>必宜维专注新能源车售后全案服务，为门店与城市代理提供检测设备、AI 流量赋能、培训及全流程运营解决方案。</p>
-    </section>
+    <!-- Hero：左小维形象，右介绍 -->
+    <main>
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-pattern"></div>
+                <div class="hero-avatar">
+                    <!-- 这里将来可以替换成真实小维 PNG 图片 -->
+                    <!-- 例如 <img src="xiao-wei.png" alt="小维 · BEV 官方服务形象" style="width:100%;border-radius:16px;" /> -->
+                    <div class="avatar-circle">👨‍🔧</div>
+                    <div class="avatar-caption">小维 · BEV 官方服务形象</div>
+                    <div class="avatar-sub">专业、可信赖的新能源养车顾问</div>
+                </div>
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span>新能源 · 三电检测 · 智能养车</span>
+                </div>
+            </div>
 
-    <section>
-        <h2>我们提供的服务</h2>
-        <ul>
-            <li>新能源三电检测设备（标准化交付）</li>
-            <li>AI 流量中心（短视频矩阵、直播、投流）</li>
-            <li>门店 SOP 体系（选址 / 开业 / 运营）</li>
-            <li>加盟合作：社区智能店、工位合作店</li>
-        </ul>
-    </section>
+            <div class="hero-right">
+                <h1><span>必宜维 BEV</span>｜智能养车服务平台</h1>
+                <p class="tagline">让用车成本持续降低</p>
+                <p class="subline">
+                    专注新能源智能养车，通过三电检测技术、智能化设备与数字化工具，
+                    让新能源车的养护更透明、更专业、更可依赖。
+                </p>
+                <div class="hero-highlight">
+                    BEV 以可视化三电健康检测、标准化服务流程与数据监测，为新能源车主提供更安心的车辆健康管理，
+                    帮助减少不必要的用车成本支出。
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary" type="button">拨打咨询电话</button>
+                    <div class="hero-phone">咨询热线：<strong>0571-85035913</strong></div>
+                </div>
+            </div>
+        </section>
 
-    <section class="contact">
-        <h2>联系我们</h2>
-        <p>📞 电话：请填写</p>
-        <p>📱 微信：请填写</p>
-        <p>📍 地址：可选填</p>
-    </section>
+        <!-- 企业介绍 -->
+        <section class="section">
+            <h2 class="section-title">企业介绍</h2>
+            <p class="section-subtitle">ABOUT BEV</p>
+            <div class="intro-box">
+                <p>
+                    必宜维（BEV）是一家专注新能源智能养车的科技服务公司，致力于通过三电检测技术、智能化设备与数字化工具，
+                    让新能源车的养护更透明、更专业、更可依赖。
+                </p>
+                <p>
+                    我们以“让用车成本持续降低”为核心使命，通过可视化三电健康检测、标准化服务流程与数据监测，
+                    让车主真正理解车辆状况，避免不必要的花费，并提升整体用车安全性。
+                </p>
+                <p>
+                    BEV 是智能养车的倡导者，也是新能源后市场服务体系的创新者。
+                    我们相信：好的技术应被普及，好的服务应被看见，每一位新能源车主，都值得拥有更透明的养车体验。
+                </p>
+            </div>
+        </section>
+
+        <!-- 服务内容 -->
+        <section class="section">
+            <h2 class="section-title">核心服务</h2>
+            <p class="section-subtitle">CORE SERVICES</p>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-tag">三电健康检测</div>
+                    <div class="service-title">新能源三电健康检测</div>
+                    <ul>
+                        <li>电池健康度检测（衰减、容量、均衡度）</li>
+                        <li>电机运行状态与效率检测</li>
+                        <li>电控系统故障诊断与风险提示</li>
+                        <li>清晰易懂的三电可视化检测报告</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-tag">智能化设备</div>
+                    <div class="service-title">智能养车解决方案</div>
+                    <ul>
+                        <li>BEV 专用新能源检测枪</li>
+                        <li>正弦波电池养护技术应用</li>
+                        <li>电磁辐射检测与评估方案</li>
+                        <li>更精准、更标准化的检测与服务流程</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-tag">数字化工具</div>
+                    <div class="service-title">数字化车况管理</div>
+                    <ul>
+                        <li>在线车况记录与车辆健康档案</li>
+                        <li>用车数据追踪与保养提醒</li>
+                        <li>新能源车科普与用车知识内容输出</li>
+                        <li>帮助车主用数字工具管理车辆健康</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 品牌视觉：Logo + 小维说明 -->
+        <section class="section">
+            <h2 class="section-title">品牌形象</h2>
+            <p class="section-subtitle">BRAND IDENTITY</p>
+            <div class="brand-visual">
+                <div class="brand-logo-box">
+                    <div>
+                        <div class="brand-logo-mark">BEV</div>
+                        <div class="brand-slogan">必宜维 · 智能养车｜让用车成本持续降低</div>
+                    </div>
+                    <div style="font-size:12px;margin-top:14px;color:#9ca3af;">
+                        Logo 采用斜切无衬线字体设计，象征新能源行业的速度、科技与可靠性，
+                        是 BEV 智能养车服务的核心视觉符号。
+                    </div>
+                </div>
+                <div class="brand-ip-box">
+                    <div class="brand-ip-title">品牌 IP：小维</div>
+                    <p>
+                        小维是必宜维 BEV 的官方服务形象，代表专业、可信赖、温和而有亲和力的新能源养车专家。
+                        他象征着必宜维的服务精神：专业、透明、持续陪伴每一位新能源车主。
+                    </p>
+                    <p style="margin-top:8px;">
+                        后续可在此位置展示小维形象、门店场景、工位环境等品牌视觉素材，
+                        让用户更直观感受到 BEV 的标准化与专业度。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section class="section">
+            <h2 class="section-title">联系我们</h2>
+            <p class="section-subtitle">CONTACT</p>
+            <div class="contact-box">
+                <p><strong>电话：</strong>0571-85035913</p>
+                <p><strong>地址：</strong>浙江省杭州市萧山区盈丰街道杭州湾智慧谷 2 期 C 座 501 室</p>
+                <p class="contact-join">
+                    加入我们 / 商务合作：<strong>请直接拨打上述电话与必宜维总部联系</strong>，
+                    我们将为您提供更详细的服务与合作信息。
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-inner">
+            <div>© 2025 必宜维 BEV · 智能养车</div>
+            <div>让用车成本持续降低</div>
+        </div>
+    </footer>
 </body>
 </html>
